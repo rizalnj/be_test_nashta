@@ -32,7 +32,7 @@ app.use(function(err, req, res, next) {
 });
 
 app.listen(3000, () => {
-  console.log(`web ini berjalan di port 3000!`);
+  console.log(`API run in port 3000!`);
 });
 
 module.exports = app;
