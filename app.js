@@ -2,17 +2,21 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const fileUpload = require('express-fileupload');
+const bodyParser = require('body-parser');
+const cors = require('cors')
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
 const app = express();
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(cors())
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(fileUpload());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
