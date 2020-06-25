@@ -23,8 +23,12 @@ router.post('/', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   let id = req.params.id;
-  writeData(data.filter((item) => item.id != id));
-  res.status(201).json({ message: 'delete data success', id });
+  if (data.filter((item) => item.id == id).length) {
+    writeData(data.filter((item) => item.id != id));
+    res.status(201).json({ message: 'delete data success', id });
+    return
+  }
+  res.status(201).json({ message: 'not found data', id });
 });
 
 router.post('/send-file', function (req, res) {
