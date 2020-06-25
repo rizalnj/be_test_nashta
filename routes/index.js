@@ -37,7 +37,7 @@ router.post('/', (req, res) => {
     ...datas
   });
   writeData(data);
-  res.status(201).json({ message: 'create data success', data });
+  res.status(200).json({ message: 'create data success', data });
 });
 
 router.put('/:id', (req, res) => {
@@ -51,20 +51,20 @@ router.put('/:id', (req, res) => {
       ...datas
     }
     writeData(newData);
-    res.status(201).json({ message: 'create data success', data: newData });
+    res.status(200).json({ message: 'create data success', data: newData });
     return
   }
-  res.status(201).json({ message: 'not found data', id });
+  res.status(200).json({ message: 'not found data', id });
 });
 
 router.delete('/:id', (req, res) => {
   let id = req.params.id;
   if (data.filter((item) => item.id == id).length) {
     writeData(data.filter((item) => item.id != id));
-    res.status(201).json({ message: 'delete data success', id });
+    res.status(200).json({ message: 'delete data success', id });
     return
   }
-  res.status(201).json({ message: 'not found data', id });
+  res.status(200).json({ message: 'not found data', id });
 });
 
 router.post('/send-file', function (req, res) {
