@@ -8,7 +8,26 @@ const writeData = (data) => fs.writeFileSync('./data.json', JSON.stringify(data,
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.json({ data });
+  let search = req.query.search;
+  let page = req.query.page;
+  let limit = req.query.limit;
+  
+  let dataNew = data;
+  if (search) {
+    dataNew = dataNew.filter(
+      (item) =>
+        item.title.toLowerCase().includes(search) ||
+        item.location.toLowerCase().includes(search) ||
+        item.date.toLowerCase().includes(search) ||
+        item.participant.toLowerCase().includes(search) ||
+        item.note.toLowerCase().includes(search)
+    )
+  }
+  const total = dataNew.length
+  if (page && limit) {
+    dataNew = dataNew.slice(((page - 1) * limit), ((page - 1) * limit) + limit)
+  }
+  res.json({ data: dataNew, page, limit, total });
 });
 
 router.post('/', (req, res) => {
