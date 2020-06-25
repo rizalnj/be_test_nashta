@@ -21,6 +21,23 @@ router.post('/', (req, res) => {
   res.status(201).json({ message: 'create data success', data });
 });
 
+router.put('/:id', (req, res) => {
+  let id = req.params.id;
+  const datas = req.body;
+  const idIndex = data.findIndex(item => item.id == id)
+  if (idIndex != -1) {
+    let newData = data
+    newData[idIndex] = {
+      ...data[idIndex],
+      ...datas
+    }
+    writeData(newData);
+    res.status(201).json({ message: 'create data success', data: newData });
+    return
+  }
+  res.status(201).json({ message: 'not found data', id });
+});
+
 router.delete('/:id', (req, res) => {
   let id = req.params.id;
   if (data.filter((item) => item.id == id).length) {
