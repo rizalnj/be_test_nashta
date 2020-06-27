@@ -11,7 +11,7 @@ router.get('/', function (req, res, next) {
   let search = req.query.search;
   let page = req.query.page;
   let limit = req.query.limit;
-  
+
   let dataNew = data;
   if (search) {
     dataNew = dataNew.filter(
@@ -25,7 +25,11 @@ router.get('/', function (req, res, next) {
   }
   const total = dataNew.length
   if (page && limit) {
-    dataNew = dataNew.slice(((page - 1) * limit), ((page - 1) * limit) + limit)
+    limit = parseFloat(limit)
+    page = parseFloat(page)
+    const datas = dataNew.slice(((page - 1) * limit), ((page - 1) * limit) + limit)
+    res.json({ data: datas, page, limit, total });
+    return
   }
   res.json({ data: dataNew, page, limit, total });
 });
