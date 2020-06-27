@@ -49,70 +49,76 @@ class AddEvent extends Component {
         <section className="login-block" method="post">
           <div className="container">
             <div className="row">
-              <div className="col-sm-4 login-sec">
-                <h2 className="text-left text-warning">+ Add Event</h2>
+              <div className="col-sm-6 login-sec">
+                <h2 className="text-left text-warning">Add Data Event</h2>
                 <form className="mt-2" onSubmit={this.handleSubmit}>
-                  <div className="form-group">
-                    <label htmlFor="title">Title</label>
-                    <input
-                      type="text"
-                      name="title"
-                      value={this.state.title}
-                      onChange={this.handleChange}
-                      className="form-control"
-                      id="title"
-                      placeholder="input title"
-                      required
-                    />
+                  <div class="form-group row">
+                    <label htmlFor="title" class="col-sm-2 col-form-label">Title</label>
+                    <div class="col-sm-10">
+                      <input
+                        type="text"
+                        name="title"
+                        value={this.state.title}
+                        onChange={this.handleChange}
+                        className="form-control"
+                        id="title"
+                        placeholder="input title"
+                        required
+                      />
+                    </div>
                   </div>
 
-                  <div className="form-group">
-                    <label htmlFor="location">Location</label>
-                    <input type="text" name="location"
-                      value={this.state.location}
-                      onChange={this.handleChange}
-                      className="form-control"
-                      id="location"
-                      placeholder="input location"
-                      required
-                    />
+                  <div class="form-group row">
+                    <label htmlFor="title" class="col-sm-2 col-form-label">Location</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="location"
+                        value={this.state.location}
+                        onChange={this.handleChange}
+                        className="form-control"
+                        id="location"
+                        placeholder="input location"
+                        required
+                      />
+                    </div>
                   </div>
-
-                  <div className="form-group">
-                    <label htmlFor="participant">Participant</label>
-                    <input type="text" name="participant"
-                      value={this.state.participant}
-                      onChange={this.handleChange}
-                      className="form-control"
-                      id="participant"
-                      placeholder="input participant"
-                      required
-                    />
+                  <div class="form-group row">
+                    <label htmlFor="title" class="col-sm-2 col-form-label">Participant</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="participant"
+                        value={this.state.participant}
+                        onChange={this.handleChange}
+                        className="form-control"
+                        id="participant"
+                        placeholder="input participant"
+                        required
+                      />
+                    </div>
                   </div>
-
-                  <div className="form-group">
-                    <label htmlFor="date">Date</label>
-                    <input
-                      type="date"
-                      name="date"
-                      value={this.state.date}
-                      onChange={this.handleChange}
-                      className="form-control"
-                      id="date"
-                      required
-                    />
+                  <div class="form-group row">
+                    <label htmlFor="title" class="col-sm-2 col-form-label">Date</label>
+                    <div class="col-sm-10">
+                      <input type="date" name="date"
+                        value={this.state.date}
+                        onChange={this.handleChange}
+                        className="form-control"
+                        id="date"
+                        required
+                      />
+                    </div>
                   </div>
-                  <div className="form-group">
-                    <label htmlFor="note">Note</label>
-                    <textarea
-                      className="form-control"
-                      name="note"
-                      value={this.state.note}
-                      onChange={this.handleChange}
-                      id="note"
-                      rows="3"
-                      required
-                    ></textarea>
+                  <div class="form-group row">
+                    <label htmlFor="title" class="col-sm-2 col-form-label">Date</label>
+                    <div class="col-sm-10">
+                      <textarea
+                        className="form-control"
+                        name="note"
+                        value={this.state.note}
+                        onChange={this.handleChange}
+                        id="note"
+                        rows="3"
+                        required
+                      ></textarea>
+                    </div>
                   </div>
                   <ImageUpload getURL={(image) => this.setState({ image })} />
                   <br></br>
@@ -120,16 +126,6 @@ class AddEvent extends Component {
                     Submit
                     </button>
                 </form>
-              </div>
-              <div className="col-md-8 banner-sec">
-                <div className="carousel-inner" role="listbox">
-                  <div className="carousel-item active">
-                    <img className="d-block img-fluid" src="https://image.freepik.com/free-photo/colleagues-giving-fist-bump_53876-64857.jpg" alt="First slide" />
-                    <div className="carousel-caption d-none d-md-block">
-                    </div>
-                  </div>
-
-                </div>
               </div>
             </div>
           </div>
